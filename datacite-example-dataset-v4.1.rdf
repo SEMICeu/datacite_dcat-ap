@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dcat="http://www.w3.org/ns/dcat#"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <rdf:Description rdf:about="http://example.com/publisher/PurdueUniversityResearchRepository(PURR)">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.com/catalog/10.5072">
+      <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Catalog"/>
+      <dct:title>Data Science catalog</dct:title>
+      <dct:description>List of Data Science publication</dct:description>
+      <dct:publisher rdf:resource="http://example.com/publisher/PurdueUniversityResearchRepository(PURR)"/>
+      <dcat:dataset rdf:resource="http://example.com/dataset/10.5072/D3P26Q35R-Test"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.com/dataset/10.5072/D3P26Q35R-Test">
+      <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+      <dct:title xml:lang="en">Critical Engineering Literacy Test (CELT)</dct:title>
+      <dct:description>We developed an instrument, Critical Engineering Literacy Test (CELT), which is a multiple choice instrument designed to measure undergraduate students’ scientific and information literacy skills. It requires students to first read a technical memo and, based on the memo’s arguments, answer eight multiple choice and six open-ended response questions. We collected data from 143 first-year engineering students and conducted an item analysis. The KR-20 reliability of the instrument was .39. Item difficulties ranged between .17 to .83. The results indicate low reliability index but acceptable levels of item difficulties and item discrimination indices. Students were most challenged when answering items measuring scientific and mathematical literacy (i.e., identifying incorrect information).</dct:description>
+      <dcat:keyword>Assessment</dcat:keyword>
+      <dcat:keyword>Information Literacy</dcat:keyword>
+      <dcat:keyword>Engineering</dcat:keyword>
+      <dcat:keyword>Undergraduate Students</dcat:keyword>
+      <dcat:keyword>CELT</dcat:keyword>
+      <dcat:keyword>Purdue University</dcat:keyword>
+      <dct:publisher rdf:resource="http://example.com/publisher/PurdueUniversityResearchRepository(PURR)"/>
+      <dcat:distribution rdf:resource="http://example.com/distribution/10.5072/D3P26Q35R-Test"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.com/distribution/10.5072/D3P26Q35R-Test">
+      <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+      <dct:description>We developed an instrument, Critical Engineering Literacy Test (CELT), which is a multiple choice instrument designed to measure undergraduate students’ scientific and information literacy skills. It requires students to first read a technical memo and, based on the memo’s arguments, answer eight multiple choice and six open-ended response questions. We collected data from 143 first-year engineering students and conducted an item analysis. The KR-20 reliability of the instrument was .39. Item difficulties ranged between .17 to .83. The results indicate low reliability index but acceptable levels of item difficulties and item discrimination indices. Students were most challenged when answering items measuring scientific and mathematical literacy (i.e., identifying incorrect information).</dct:description>
+      <dcat:accessURL rdf:resource="https://doi.org/10.5072/D3P26Q35R-Test"/>
+   </rdf:Description>
+</rdf:RDF>
