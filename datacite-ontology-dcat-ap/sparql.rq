@@ -1,0 +1,45 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX co: <http://purl.org/co/>
+PREFIX example: <http://example.com/>
+PREFIX doi: <https://doi.org/>
+
+CONSTRUCT { 
+    ?resource rdf:type dcat:Dataset .
+    ?resource dcterms:title ?title .
+    ?resource dcterms:description ?description.
+    ?resource dcat:keyword ?subject.
+    ?resource dcterms:publisher ?publisher.
+    ?publisher rdf:type foaf:Organization.
+    ?catalogue rdf:type dcat:Catalog.
+    ?catalogue dcat:dataset ?resource.
+    ?catalogue dcterms:publisher ?catalogpublisher.
+    ?catalogue dcterms:title ?catalogtitle.
+    ?catalogue dcterms:description ?catalogdescription.
+    ?distributionURI rdf:type dcat:Distribution.
+    ?distributionURI dcat:accessURL ?x.
+    ?resource dcat:distribution ?distributionURI.
+    ?distributionURI dcterms:description ?description.
+}
+ WHERE {
+    ?x datacite:hasGeneralResourceType ?resource.
+    ?resource rdf:type dcmitype:Dataset.
+    ?x dcterms:title ?title.
+    ?x dcterms:publisher ?publisher.
+    ?catalogue rdf:type co:Collection.
+    ?catalogue co:element ?x.
+    ?catalogue dcterms:description ?catalogdescription.
+    ?catalogue dcterms:title ?catalogtitle.
+    ?catalogue dcterms:publisher ?catalogpublisher.
+    OPTIONAL {?x dcterms:description ?description} .
+    OPTIONAL {?x dcterms:subject ?subject}.
+    BIND (replace(str(?x),STR(doi:), "") as ?resourcename).
+    BIND (CONCAT(STR(example:distribution), CONCAT("/", ?resourcename)) as ?distributionName).
+    BIND (IRI(?distributionName) as ?distributionURI).
+}
